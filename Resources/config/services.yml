@@ -2,7 +2,7 @@ parameters:
 
 services:
     core.memcached:
-        class: Acilia\Component\Memcached\Service\MemcacheService
+        class: Acilia\Component\Memcached\Service\MemcachedService
         arguments: [%memcached.servers%, %kernel.environment%, %kernel.debug%, %memcached.prefix%, %memcached.enabled%]
 
     core.fragment_cache.listener:
