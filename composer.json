@@ -13,9 +13,8 @@
     "require": {
         "php":                       ">=5.3.3",
         "symfony/framework-bundle":  ">=2.3.0",
-        "aciliainternet/component-memcached": "dev-master"
+        "aciliainternet/component-memcached": ">=0.1"
     },
-    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "Acilia\\Bundle\\CoreBundle": "" }
     },
