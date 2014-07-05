@@ -1,0 +1,9 @@
+parameters:
+
+services:
+    core.memcached:
+        class: Acilia\CoreBundle\Service\MemcacheService
+        arguments: [%memcached.servers%, %kernel.environment%, %kernel.debug%, %memcached.prefix%, %memcached.enabled%]
+        
+    memcached:
+        alias: core.memcached
