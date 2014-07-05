@@ -11,9 +11,10 @@
         }
     ],
     "require": {
-        "php":                       ">=5.3.3",
-        "symfony/framework-bundle":  ">=2.3.0",
-        "aciliainternet/component-memcached": ">=0.1"
+        "php":                                     ">=5.3.3",
+        "symfony/framework-bundle":                ">=2.3.0",
+        "aciliainternet/component-memcached":      ">=0.1",
+        "aciliainternet/component-fragment-cache": ">=0.1"
     },
     "autoload": {
         "psr-0": { "Acilia\\Bundle\\CoreBundle": "" }

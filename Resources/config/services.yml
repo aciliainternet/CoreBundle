@@ -2,8 +2,11 @@ parameters:
 
 services:
     core.memcached:
-        class: Acilia\CoreBundle\Service\MemcacheService
+        class: Acilia\Component\Memcached\Service\MemcacheService
         arguments: [%memcached.servers%, %kernel.environment%, %kernel.debug%, %memcached.prefix%, %memcached.enabled%]
-        
-    memcached:
-        alias: core.memcached
+
+    core.fragment_cache.listener:
+        class: Acilia\Component\FragmentCache\EventListener\FragmentCacheListener
+        arguments: [@event_dispatcher, %kernel.environment%, %kernel.debug%, %fragment_cache.enabled%, @core.memcached]
+        tags:
+            - { name: kernel.event_subscriber }

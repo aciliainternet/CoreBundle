@@ -32,6 +32,11 @@ class AciliaCoreExtension extends Extension
         	$container->setParameter('memcached.enabled', true);
         }
 
+        // Set Fragment Cache Disabled by Default
+        if (!$container->hasParameter('fragment_cache.enabled')) {
+            $container->setParameter('fragment_cache.enabled', false);
+        }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
