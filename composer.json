@@ -15,6 +15,7 @@
         "symfony/framework-bundle":  ">=2.3.0",
         "aciliainternet/component-memcached": "dev-master"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "Acilia\\Bundle\\CoreBundle": "" }
     },
