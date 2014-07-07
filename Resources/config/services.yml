@@ -1,6 +1,7 @@
 parameters:
 
 services:
+    # Configure Components
     core.geoip:
         class: Acilia\Component\GeoIP\Service\GeoIPService
         arguments: [%kernel.debug%]
