@@ -1,6 +1,10 @@
 parameters:
 
 services:
+    core.geoip:
+        class: Acilia\Component\GeoIP\Service\GeoIPService
+        arguments: [%kernel.debug%]
+
     core.memcached:
         class: Acilia\Component\Memcached\Service\MemcachedService
         arguments: [%memcached.servers%, %kernel.environment%, %kernel.debug%, %memcached.prefix%, %memcached.enabled%]
