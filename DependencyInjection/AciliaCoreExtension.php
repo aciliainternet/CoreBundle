@@ -24,12 +24,12 @@ class AciliaCoreExtension extends Extension
 
         // Set Default Memcache Prefix
         if (!$container->hasParameter('memcached.prefix')) {
-        	$container->setParameter('memcached.prefix', 'acilia-cb');
+            $container->setParameter('memcached.prefix', 'acilia-cb');
         }
 
         // Set Memcache Enabled by Default
         if (!$container->hasParameter('memcached.enabled')) {
-        	$container->setParameter('memcached.enabled', true);
+            $container->setParameter('memcached.enabled', true);
         }
 
         // Set Fragment Cache Disabled by Default
