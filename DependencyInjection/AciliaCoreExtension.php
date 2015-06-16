@@ -37,6 +37,11 @@ class AciliaCoreExtension extends Extension
             $container->setParameter('fragment_cache.enabled', false);
         }
 
+        // Set production environment disabled by default
+        if (!$container->hasParameter('is_production')) {
+            $container->setParameter('is_production', false);
+        }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

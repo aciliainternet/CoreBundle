@@ -15,3 +15,9 @@ services:
         arguments: [@event_dispatcher, %kernel.environment%, %kernel.debug%, %fragment_cache.enabled%, @core.memcached]
         tags:
             - { name: kernel.event_subscriber }
+
+    core.simple_compressor:
+        class: Acilia\Bundle\CoreBundle\EventListener\SimpleCompressorListener
+        arguments: [%is_production%]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
