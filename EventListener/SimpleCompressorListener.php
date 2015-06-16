@@ -14,12 +14,16 @@ class SimpleCompressorListener
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        // compress html output
-        $response = $event->getResponse();
-        $responseContent = $response->getContent();
-        foreach (["~>\s+<~" => "><", "/\n+/" => "\n"] as $pattern => $replacement) {
-            $responseContent = preg_replace($pattern, $replacement, $responseContent);
+        if ($this->isProduction === true) {
+            // compress html output
+            $response = $event->getResponse();
+            $responseContent = $response->getContent();
+
+            foreach (["~>\s+<~" => "><", "/\n+/" => "\n"] as $pattern => $replacement) {
+                $responseContent = preg_replace($pattern, $replacement, $responseContent);
+            }
+
+            $response->setContent($responseContent);
         }
-        $response->setContent($responseContent);
     }
 }
