@@ -3,7 +3,7 @@ namespace Acilia\Bundle\CoreBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
-class ResponseListener
+class SimpleCompressorListener
 {
     protected $isProduction;
 
