@@ -20,4 +20,4 @@ services:
         class: Acilia\Bundle\CoreBundle\EventListener\SimpleCompressorListener
         arguments: [%is_production%]
         tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: -32 }
