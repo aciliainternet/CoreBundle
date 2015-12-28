@@ -12,7 +12,7 @@ services:
 
     core.fragment_cache.listener:
         class: Acilia\Component\FragmentCache\EventListener\FragmentCacheListener
-        arguments: [@event_dispatcher, %kernel.environment%, %kernel.debug%, %fragment_cache.enabled%, @core.memcached]
+        arguments: ["@event_dispatcher", %kernel.environment%, %kernel.debug%, %fragment_cache.enabled%, "@core.memcached"]
         tags:
             - { name: kernel.event_subscriber }
 
