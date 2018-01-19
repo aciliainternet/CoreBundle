@@ -4,20 +4,20 @@ services:
     # Configure Components
     core.geoip:
         class: Acilia\Component\GeoIP\Service\GeoIPService
-        arguments: [%kernel.debug%]
+        arguments: ["%kernel.debug%"]
 
     core.memcached:
         class: Acilia\Component\Memcached\Service\MemcachedService
-        arguments: [%memcached.servers%, %kernel.environment%, %kernel.debug%, %memcached.prefix%, %memcached.enabled%]
+        arguments: ["%memcached.servers%", "%kernel.environment%", "%kernel.debug%", "%memcached.prefix%", "%memcached.enabled%"]
 
     core.fragment_cache.listener:
         class: Acilia\Component\FragmentCache\EventListener\FragmentCacheListener
-        arguments: ["@event_dispatcher", %kernel.environment%, %kernel.debug%, %fragment_cache.enabled%, "@core.memcached"]
+        arguments: ["@event_dispatcher", "%kernel.environment%", "%kernel.debug%", "%fragment_cache.enabled%", "@core.memcached"]
         tags:
             - { name: kernel.event_subscriber }
 
     core.simple_compressor:
         class: Acilia\Bundle\CoreBundle\EventListener\SimpleCompressorListener
-        arguments: [%is_production%]
+        arguments: ["%is_production%"]
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: -32 }
